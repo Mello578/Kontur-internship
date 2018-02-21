@@ -4,6 +4,7 @@ import 'babel-polyfill';
 import {createCardsAndSearchCoordinates} from './createCardsAndSearchCoordinates';
 import {getAddrShirt} from './getAddrShirt';
 import {checkCards} from './checkCards';
+import {gamePoints} from './gamePoints';
 
 const {coordinates, createCards, allCards, shitCardStart} = createCardsAndSearchCoordinates;
 
@@ -13,12 +14,15 @@ const startScreen = document.getElementById('start-screen');
 const fieldShirtCards = document.getElementById('shirt-cards');
 const buttonRepeatGame = document.getElementById('repeat-game');
 
+const NUMBER_ALL_CARDS = 18;
+let numberOpenedCards = 0;
 let selectOne = undefined;
 let selectTwo = undefined;
 let allCardsArray;
 
 function startAndRepeatgame() {
-	console.log('repeat start')
+	numberOpenedCards = 0;
+	document.getElementById('points').innerText = '0';
 	getAddrShirt('http://localhost:3000/').then((data) => {
 		let address = JSON.parse(data);
 		allCardsArray = address;
@@ -104,11 +108,14 @@ function actionsOpenedCard(checked) {
 		setTimeout(() => {
 			oneCard.classList.add('no-display');
 			twoCard.classList.add('no-display');
+			numberOpenedCards += 2;
+			gamePoints(NUMBER_ALL_CARDS - numberOpenedCards);
 		}, 500);
 	} else {
 		setTimeout(() => {
 			flipCard(oneCard.parentElement.id.slice(8));
 			flipCard(twoCard.parentElement.id.slice(8));
+			gamePoints(numberOpenedCards);
 		}, 500);
 	}
 	selectOne = undefined;
