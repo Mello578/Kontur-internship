@@ -1,0 +1,26 @@
+{
+  "name": "Kontur",
+  "version": "1.0.0",
+  "description": "This is a test work for Kontur",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Yakovlev Mikhail",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2"
+  },
+  "devDependencies": {
+    "babel-core": "5.8.24",
+    "babel-loader": "5.x",
+    "copy-webpack-plugin": "^4.4.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^0.11.2",
+    "imports-loader": "^0.7.1",
+    "url-loader": "^0.5.9",
+    "webpack": "3.2.0"
+  }
+}

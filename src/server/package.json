@@ -1,0 +1,17 @@
+{
+  "name": "kontur",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Yakovlev Mikhail",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  }
+}
