@@ -71,7 +71,7 @@ body {
 	height: 262px;
 }
 
-.start-title {
+.start-title, .end-title {
 	margin: 3.3% 0 5.7%;
 	width: 219px;
 	height: 38px;
@@ -79,10 +79,21 @@ body {
 	line-height: 38px;
 }
 
+.end-title {
+	width: 335px;
+}
+
 .start-title__text {
 	vertical-align: middle;
 	text-transform: uppercase;
 	font-size: 28px;
+	font-weight: bold;
+	color: #fff;
+	opacity: 0.85;
+}
+.end-title__text {
+	vertical-align: middle;
+	font-size: 24px;
 	font-weight: bold;
 	color: #fff;
 	opacity: 0.85;

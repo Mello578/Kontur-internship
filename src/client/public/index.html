@@ -18,7 +18,7 @@
 	<!--start game start screen-->
 	<div class='start-screen display-center bg-color' id='start-screen'>
 		<img src='../img/StartGame.png' alt='start'>
-		<div class='start-title'>
+		<div class='end-title'>
 			<span class='start-title__text'>memory game</span>
 		</div>
 
@@ -63,11 +63,21 @@
 				</div>
 			</div>
 		</div>
-
 		<div id='shirt-cards'></div>
-
 	</div>
 	<!--end game field-->
+
+	<!--start game end screen-->
+	<div class='start-screen display-center bg-color no-display' id='end-screen'>
+		<img src='../img/Group%202.png' alt='end'>
+		<div class='end-title'>
+			<span class='end-title__text'>Поздравляем!</span>
+			<span class='end-title__text' id='result'>Ваш итоговый счет:</span>
+		</div>
+
+		<button class='button' id='game-repeat'>Ещё раз</button>
+	</div>
+	<!--end game end screen-->
 
 	<script src='../js/bundle.js'></script>
 </div>
