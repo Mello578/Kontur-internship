@@ -1,4 +1,4 @@
-export async function getAddrShirt(url){
+export async function getAddrShirt(url) {
 	let responseCopy;
 	return await fetch(url)
 		.then(

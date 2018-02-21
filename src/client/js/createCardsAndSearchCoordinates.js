@@ -1,4 +1,5 @@
 import {idElement} from './idElement';
+
 const idElements = idElement();
 
 let coordinates = [];
@@ -12,7 +13,7 @@ function coordinateOneCard(card) {
 	return new Coordinates(card.offsetTop, card.offsetLeft);
 }
 
-function create(name, attributes){
+function create(name, attributes) {
 	if (name !== undefined) {
 		let el = document.createElement(name);
 		if (typeof attributes == 'object') {
@@ -39,11 +40,15 @@ function create(name, attributes){
 function createCards(address) {
 	const shirtCards = document.getElementById('shirt-cards');
 	for (let i = 0; i < idElements.length; i++) {
-			let div =	create('div', {id: 'flipCont' + i, 'class': 'one-card flip-container'},
-								create('div', {id: 'flipper' + i, 'class': 'flipper'},
-								create('div', {id: idElements[i], 'class': 'one-card card-shirt front'}),
-								create('div', {id: 'flipper' + i, 'class': 'one-card card-shirt back', 'style': 'background: url("' + address[i].path + '") no-repeat; background-size: cover'})));
-			shirtCards.appendChild(div);
+		let div = create('div', {id: 'flipCont' + i, 'class': 'one-card flip-container'},
+			create('div', {id: 'flipper' + i, 'class': 'flipper'},
+				create('div', {id: idElements[i], 'class': 'one-card card-shirt front'}),
+				create('div', {
+					id: 'flipper' + i,
+					'class': 'one-card card-shirt back',
+					'style': 'background: url("' + address[i].path + '") no-repeat; background-size: cover'
+				})));
+		shirtCards.appendChild(div);
 	}
 	searchCoordinates();
 }
