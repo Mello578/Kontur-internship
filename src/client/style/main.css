@@ -1,0 +1,218 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+	overflow: hidden;
+}
+
+.bg-color {
+	background: #1b692d; /* Old browsers */
+	background: -moz-linear-gradient(left, #1b692d 0%, #217a35 50%, #1b692d 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #1b692d 0%, #217a35 50%, #1b692d 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #1b692d 0%, #217a35 50%, #1b692d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.display-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.no-display {
+	display: none;
+}
+
+.preloader {
+	position: fixed;
+	background: rgba(0, 0, 0, 0.33);
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+}
+
+.preloader span {
+	font-size: 40px;
+	display: block;
+	margin-top: 20px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.loader {
+	border: 30px solid #fff;
+	border-top: 30px solid #747474;
+	border-left: 30px solid #747474;
+	border-bottom: 30px solid #747474;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.start-screen, .game-field {
+	flex-direction: column;
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+
+}
+
+.start-screen img {
+	width: 503px;
+	height: 262px;
+}
+
+.start-title, .end-title {
+	margin: 3.3% 0 5.7%;
+	width: 219px;
+	height: 38px;
+	text-align: center;
+	line-height: 38px;
+}
+
+.end-title {
+	width: 335px;
+}
+
+.start-title__text {
+	vertical-align: middle;
+	text-transform: uppercase;
+	font-size: 28px;
+	font-weight: bold;
+	color: #fff;
+	opacity: 0.85;
+}
+.end-title__text {
+	vertical-align: middle;
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+	opacity: 0.85;
+}
+
+.button {
+	height: 42px;
+	width: 144px;
+	color: #1C7430;
+	border-radius: 4px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	background: #fff;
+	opacity: 0.85;
+	border: none;
+	position: relative;
+}
+
+.button:active {
+	top: 2px;
+	right: 2px;
+}
+
+.container {
+	width: 700px;
+	margin: 0 auto;
+}
+
+.title-game {
+	opacity: 0.8;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 5% 0 2%;
+}
+
+.title-game > div {
+	margin-left: 41.7%;
+}
+
+.title-game, .game-repeat {
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.game-repeat {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.game-repeat:hover{
+	color: #d8e6cf;
+}
+
+.game-repeat:active{
+	color: #93ff4d;
+}
+
+.points--margin{
+	margin-left: 10px;
+}
+
+.line-cards{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3%;
+}
+
+.one-card, .flip-container, .front, .back{
+	width: 100px;
+	height: 140px;
+}
+
+.card-shirt{
+	background: url("../img/cards/shirtCard.png") no-repeat;
+	border-radius: 5px;
+	background-size: cover;
+	position: relative;
+}
+
+.flip-container {
+	perspective: 1000px;
+	transition: all 1s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+}
+
+.flip-container.flip .flipper{
+	transform: rotateY(180deg);
+}
+
+/* здесь находится скорость перевертывания */
+	.flipper {
+		transition: 0.6s;
+		transform-style: preserve-3d;
+		position: relative;
+	}
+/* скройте обратную сторону во время переворота */
+	.front, .back {
+		backface-visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+/* лицевая сторона размещена над обратной */
+	.front {
+		z-index: 2;
+	}
+/* обратная, изначально скрытая сторона */
+	.back {
+		transform: rotateY(180deg);
+	}
+
+	.increase-card:hover{
+		transform: scale(1.1);
+	}
