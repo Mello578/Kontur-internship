@@ -124,14 +124,12 @@ function actionsOpenedCard(checked) {
 			gamePoints(NUMBER_ALL_CARDS - numberOpenedCards);
 			if (numberOpenedCards === NUMBER_ALL_CARDS) {
 				finishResult.innerText += ' ' + document.getElementById('points').innerText;
-				setTimeout(()=>{
+				setTimeout(() => {
 					gameField.classList.add('no-display');
 					endScreen.classList.remove('no-display');
 				}, 500);
-
 			}
 		}, 500);
-
 	} else {
 		setTimeout(() => {
 			flipCard(oneCard.parentElement.id.slice(8));
