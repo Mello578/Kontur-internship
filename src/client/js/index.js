@@ -11,8 +11,11 @@ const {coordinates, createCards, allCards, shitCardStart} = createCardsAndSearch
 const buttonStart = document.getElementById('button-start');
 const gameField = document.getElementById('game-field');
 const startScreen = document.getElementById('start-screen');
+const endScreen = document.getElementById('end-screen');
+const finishResult = document.getElementById('result');
 const fieldShirtCards = document.getElementById('shirt-cards');
 const buttonRepeatGame = document.getElementById('repeat-game');
+const buttonGameRepeat = document.getElementById('game-repeat');
 
 const NUMBER_ALL_CARDS = 18;
 let numberOpenedCards = 0;
@@ -21,6 +24,10 @@ let selectTwo = undefined;
 let allCardsArray;
 
 function startAndRepeatgame() {
+	if (gameField.classList.contains('no-display')) {
+		gameField.classList.remove('no-display');
+		endScreen.classList.add('no-display');
+	}
 	numberOpenedCards = 0;
 	document.getElementById('points').innerText = '0';
 	getAddrShirt('http://localhost:3000/').then((data) => {
@@ -33,8 +40,7 @@ function startAndRepeatgame() {
 }
 
 function deleteCards() {
-
-	while(fieldShirtCards.lastChild){
+	while (fieldShirtCards.lastChild) {
 		fieldShirtCards.removeChild(fieldShirtCards.lastChild);
 	}
 }
@@ -47,6 +53,12 @@ buttonStart.addEventListener('click', (e) => {
 });
 
 buttonRepeatGame.addEventListener('click', (e) => {
+	e.preventDefault;
+	deleteCards();
+	startAndRepeatgame();
+});
+
+buttonGameRepeat.addEventListener('click', (e) => {
 	e.preventDefault;
 	deleteCards();
 	startAndRepeatgame();
@@ -112,7 +124,7 @@ function actionsOpenedCard(checked) {
 			gamePoints(NUMBER_ALL_CARDS - numberOpenedCards);
 			if (numberOpenedCards === NUMBER_ALL_CARDS) {
 				finishResult.innerText += ' ' + document.getElementById('points').innerText;
-				setTimeout(()=>{
+				setTimeout(() => {
 					gameField.classList.add('no-display');
 					endScreen.classList.remove('no-display');
 				}, 500);
