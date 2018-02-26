@@ -1,4 +1,6 @@
+import getElem from './getElem';
+
 export function gamePoints(countRemainingOrOpenCard) {
-	let pointBoard = document.getElementById('points');
-	pointBoard.innerText = parseInt(pointBoard.innerText) + countRemainingOrOpenCard * 42;
+  let pointBoard = getElem('points');
+  pointBoard.innerText = parseInt(pointBoard.innerText) + countRemainingOrOpenCard * 42;
 }
