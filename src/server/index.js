@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const mixedAndDuplicatedArray = require('./shirtOfCards/selectShirt');
+const mixedAndDuplicatedArray= require('./shirtOfCards/selectShirt');
 const PORT = 3000;
 
 app.all('/*', function (req, res, next) {
