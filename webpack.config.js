@@ -38,10 +38,6 @@ module.exports = {
 				})
 			},
 			{
-				test: /\.(woff|woff2|eot|ttf|svg)$/,
-				loader: "url-loader"
-			},
-			{
 				test: /\.(png|jpg|gif)$/,
 				loader: 'file-loader'
 			}
@@ -51,7 +47,7 @@ module.exports = {
 		new ExtractTextPlugin('../style/main.css'),
 		new CopyWebpackPlugin([
 			{ from: './src/client/img', to: '../img/'},
-			{ from: './src/client/public', to: '../public/'}
+			{ from: './src/client/index.html', to: '../index.html'}
 		]),
 	]
 };

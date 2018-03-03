@@ -10,7 +10,6 @@
     "dev": "nodemon src/server/index.js",
     "start": "npm run build && npm run dev"
   },
-  "author": "Yakovlev Mikhail",
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -25,9 +24,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
     "imports-loader": "^0.7.1",
-    "url-loader": "^0.5.9",
     "webpack": "^3.11.0",
-    "webpack-cli": "^2.0.10",
     "nodemon": "^1.12.5"
   }
 }

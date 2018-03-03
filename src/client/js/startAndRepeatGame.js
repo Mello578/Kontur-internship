@@ -27,12 +27,21 @@ async function startAndRepeatgame() {
   getElem('points').innerText = '0';
   getElem('result').innerText = '';
   const data = await getUrlShirtAndNameCard(URL);
-  const address = JSON.parse(data);
+  const address = checkData(data);
   arrayPlaceOfCardsCoordinates = foundPlaceCardCoordinates();
   drawingCards(address);
   createCard(address);
   await offsetCardStart(arrayAllCards);
   await flippAllCardsStartGame(arrayAllCards);
+}
+
+function checkData(data) {
+  const dataFromTheServer = JSON.parse(data);
+  if(dataFromTheServer.length !== NUMBER_ALL_CARDS){
+    console.log('Error! Incorrect data from the server!');
+  }else{
+    return dataFromTheServer;
+  }
 }
 
 function createCard(data) {
