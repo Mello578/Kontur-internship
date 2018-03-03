@@ -37,9 +37,9 @@ function actionsOpenedCard(checked) {
       oneCard.classList.add('no-display');
       twoCard.classList.add('no-display');
       numberOpenedCards.numb += 2;
-      gamePoints(NUMBER_ALL_CARDS - numberOpenedCards.numb);
+      gamePoints(NUMBER_ALL_CARDS - numberOpenedCards.numb, 'win');
       if (numberOpenedCards.numb === NUMBER_ALL_CARDS) {
-        finishResult.innerText += ' ' + getElem('points').innerText;
+        finishResult.innerText = ' ' + getElem('points').innerText;
         setTimeout(() => {
           gameField.classList.add('no-display');
           endScreen.classList.remove('no-display');
@@ -52,7 +52,7 @@ function actionsOpenedCard(checked) {
     setTimeout(() => {
       flipCard(firstSelected.id);
       flipCard(secondSelected.id);
-      gamePoints(numberOpenedCards.numb);
+      gamePoints(numberOpenedCards.numb, 'lose');
       zeroingVariables();
     }, 500);
   }

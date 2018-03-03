@@ -1,5 +1,3 @@
-'use strict';
-
 function shuffle(a) {
   if (a) {
     let j, x, i = a.length - 1;

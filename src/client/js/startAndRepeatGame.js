@@ -25,6 +25,7 @@ async function startAndRepeatgame() {
   }
   numberOpenedCards.numb = 0;
   getElem('points').innerText = '0';
+  getElem('result').innerText = '';
   const data = await getUrlShirtAndNameCard(URL);
   const address = JSON.parse(data);
   arrayPlaceOfCardsCoordinates = foundPlaceCardCoordinates();

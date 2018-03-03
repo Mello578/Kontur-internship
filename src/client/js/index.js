@@ -1,4 +1,3 @@
-'use strict';
 import '../style/main.css';
 import 'babel-polyfill';
 
