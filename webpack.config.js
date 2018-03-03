@@ -7,12 +7,12 @@ module.exports = {
 		extensions: ['.src', '.js']
 	},
 	entry:  {
-		'bundle': './js/index.js',
-		'toRemovePreloader': './js/toRemovePreloader.js'
+		'bundle': './src/client/js/index.js',
+		'toRemovePreloader': './src/client/js/toRemovePreloader.js'
 	},
 	output: {
-		path:  __dirname + '/../../dist/js/',
-		publicPath: __dirname + '/../../dist/',
+		path:  __dirname + '/dist/js/',
+		publicPath: __dirname + '/dist/',
 		filename: '[name].js'
 	},
 	module: {
@@ -50,8 +50,8 @@ module.exports = {
 	plugins: [
 		new ExtractTextPlugin('../style/main.css'),
 		new CopyWebpackPlugin([
-			{ from: 'img', to: '../img/'},
-			{ from: 'public', to: '../public/'}
+			{ from: './src/client/img', to: '../img/'},
+			{ from: './src/client/public', to: '../public/'}
 		]),
 	]
 };
