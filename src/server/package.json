@@ -1,7 +1,7 @@
 {
   "name": "kontur",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server for test task of Kontur",
   "main": "index.js",
   "author": "Yakovlev Mikhail",
   "scripts": {

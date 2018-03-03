@@ -1,40 +1,19 @@
-const {PATH_SHIRT_CARD} = require('./pathToshirtCards');
-let shuffle = require('./shuffle');
+'use strict';
+const PATH_SHIRT_CARD = require('./pathToshirtCards');
+const shuffle = require('./shuffle');
 
-function randomCards(allCards) {
-  const numbRandomCard = Math.floor(Math.random() * allCards.length);
-  return allCards[numbRandomCard];
-}
+const shufledAllCard = shuffle(PATH_SHIRT_CARD);
+let selectedCard = shufledAllCard.slice(0, 9);
 
-function matchCheck(arrayCards, currentCard) {
-  if (arrayCards.length > 0) {
-    const currentId = currentCard.id;
-    const arrayCardsId = arrayCards.map((item) => item.id);
-    return arrayCardsId.indexOf(currentId);
-  } else {
-    return -1;
-  }
-}
+selectedCard = generateDuplicationArray(selectedCard);
 
-function setCards() {
-  let setRandomCards = [];
-  while (setRandomCards.length < 9) {
-    let randomCart = randomCards(PATH_SHIRT_CARD);
-    if (matchCheck(setRandomCards, randomCart) === -1) {
-      setRandomCards.push(randomCart)
-    }
-  }
-  return setRandomCards;
-}
+let mixedAndDuplicatedArray = function () {
+  shuffle(selectedCard);
+  return JSON.stringify(selectedCard);
+};
 
 function generateDuplicationArray(setCards) {
   return setCards.concat(setCards);
 }
 
-let theFinishedArray = function () {
-  let notMixedArray = generateDuplicationArray(setCards());
-  shuffle(notMixedArray);
-  return JSON.stringify(notMixedArray);
-};
-
-module.exports = theFinishedArray;
+module.exports = mixedAndDuplicatedArray;

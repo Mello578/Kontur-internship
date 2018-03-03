@@ -261,4 +261,4 @@ const PATH_SHIRT_CARD = [
 	}
 ];
 
-module.exports = {PATH_SHIRT_CARD};
+module.exports = PATH_SHIRT_CARD;

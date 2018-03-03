@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const theFinishedArray = require('./shirtOfCards/selectShirt');
+const mixedAndDuplicatedArray = require('./shirtOfCards/selectShirt');
 const PORT = 3000;
 
 app.all('/*', function (req, res, next) {
@@ -10,7 +10,7 @@ app.all('/*', function (req, res, next) {
 });
 
 app.use('/', (req, res) => {
-  res.json(theFinishedArray())
+  res.json(mixedAndDuplicatedArray())
 });
 
 app.listen(PORT, () => console.log(`Express app listening on localhost:${PORT}`));

@@ -1,3 +1,4 @@
+'use strict';
 import '../style/main.css';
 import 'babel-polyfill';
 
@@ -6,8 +7,7 @@ import {workingWithStartAndRepeatGame} from './startAndRepeatGame';
 import {clickedCard} from './clickCard';
 
 const fieldShirtCards = getElem('shirt-cards');
-
-let {startAndRepeatgame, deleteCards, arrayAllCards} = workingWithStartAndRepeatGame;
+let {startAndRepeatgame, deleteCards, setNullArrayAllCards} = workingWithStartAndRepeatGame;
 
 const buttonStart = getElem('button-start');
 const gameField = getElem('game-field');
@@ -23,7 +23,6 @@ async function startAndRepeateInternal() {
   clickProtection = true;
 }
 
-
 buttonStart.addEventListener('click', (e) => {
   e.preventDefault();
   gameField.classList.remove('no-display');
@@ -34,7 +33,7 @@ buttonStart.addEventListener('click', (e) => {
 buttonRepeatGame.addEventListener('click', (e) => {
   e.preventDefault();
   deleteCards();
-  arrayAllCards = [];
+  setNullArrayAllCards();
   startAndRepeateInternal();
 });
 
@@ -52,6 +51,6 @@ fieldShirtCards.addEventListener('click', (e) => {
 buttonGameRepeat.addEventListener('click', (e) => {
   e.preventDefault();
   deleteCards();
-  arrayAllCards = [];
+  setNullArrayAllCards();
   startAndRepeateInternal();
 });

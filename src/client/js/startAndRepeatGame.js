@@ -13,6 +13,7 @@ const {flippAllCardsStartGame} = flippFunction;
 const fieldShirtCards = getElem('shirt-cards');
 const gameField = getElem('game-field');
 const endScreen = getElem('end-screen');
+const URL = 'http://localhost:3000/';
 
 let arrayAllCards = [];
 let arrayPlaceOfCardsCoordinates = [];
@@ -24,7 +25,7 @@ async function startAndRepeatgame() {
   }
   numberOpenedCards.numb = 0;
   getElem('points').innerText = '0';
-  const data = await getUrlShirtAndNameCard('http://localhost:3000/');
+  const data = await getUrlShirtAndNameCard(URL);
   const address = JSON.parse(data);
   arrayPlaceOfCardsCoordinates = foundPlaceCardCoordinates();
   drawingCards(address);
@@ -49,8 +50,16 @@ function deleteCards() {
   }
 }
 
+export function getArrayAllCards(){
+  return arrayAllCards;
+}
+
+function setNullArrayAllCards(){
+  arrayAllCards = [];
+}
+
 export const workingWithStartAndRepeatGame = {
   startAndRepeatgame,
   deleteCards,
-  arrayAllCards
+  setNullArrayAllCards
 };
