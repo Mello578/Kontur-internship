@@ -1,51 +1,47 @@
+import {promiseTimeout} from './offsetCards';
 
-
-const endGameAudio = new Audio('./audio/endGame.mp3');
-const flopAudio = new Audio('./audio/flop.mp3');
-const guessCardsAudio = new Audio('./audio/guessCards.mp3');
-const notGuessCardsAudio = new Audio('./audio/notGuessCards.mp3');
+const endGameAudio = './audio/endGame.mp3';
+const flipAudio = './audio/flip.mp3';
+const guessCardsAudio = './audio/guessCards.mp3';
+const notGuessCardsAudio = './audio/notGuessCards.mp3';
 const distributionCardsAudio = './audio/distributionCards.mp3';
-const loseGameAudio = new Audio('./audio/loseGame.mp3');
+const loseGameAudio = './audio/loseGame.mp3';
 
 let countInterval = 0;
 
 export function runAudio(audioMode) {
   switch (audioMode) {
     case 'endGame':
-      endGameAudio.play();
+      musicInterval(endGameAudio, 10, 1);
       break;
-    case 'flopCard':
-      flopAudio.play();
+    case 'flipCard':
+      musicInterval(flipAudio , 10, 1);
       break;
     case 'guessCard':
-      guessCardsAudio.play();
+      musicInterval(guessCardsAudio, 10, 1);
       break;
     case 'notGuessCard':
-      notGuessCardsAudio.play();
+      musicInterval(notGuessCardsAudio, 10, 1);
       break;
     case 'distributionCards':
-      musicInterval(distributionCardsAudio, 150, 18);
+      musicInterval(distributionCardsAudio, 60, 18);
       break;
     case 'loseGame':
-      loseGameAudio.play();
+      musicInterval(loseGameAudio, 10, 1);
       break;
   }
 }
 
-function musicInterval(music, interval, countOfCalls) {
+async function musicInterval(music, interval, countOfCalls) {
   countInterval += interval;
 
-  let timeout = setTimeout(()=>{
-    new Audio(music).play();
-  }, countInterval);
+  await promiseTimeout(countInterval);
+  new Audio(music).play();
 
-console.log(countInterval)
-  let maxInterval = countOfCalls*interval;
-  if (countInterval > maxInterval-1) {
+  let maxInterval = countOfCalls * interval;
+  if (countInterval > maxInterval - 1) {
     countInterval = 0;
-    clearTimeout(timeout);
   }
-  console.log('end - ',countInterval)
 }
 
 

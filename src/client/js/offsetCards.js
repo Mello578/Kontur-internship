@@ -1,7 +1,7 @@
 import getElem from './getElem';
 import {runAudio} from './runAudio';
 
-function promiseTimeout(ms) {
+export function promiseTimeout(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
