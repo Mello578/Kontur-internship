@@ -40,14 +40,20 @@ module.exports = {
 			{
 				test: /\.(png|jpg|gif)$/,
 				loader: 'file-loader'
-			}
+			},
+      {
+        test: /\.mp3$/,
+        //include: SRC,
+        loader: 'file-loader'
+      }
 		]
 	},
 	plugins: [
 		new ExtractTextPlugin('../style/main.css'),
 		new CopyWebpackPlugin([
 			{ from: './src/client/img', to: '../img/'},
-			{ from: './src/client/index.html', to: '../index.html'}
+			{ from: './src/client/index.html', to: '../index.html'},
+			{ from: './src/client/audio', to: '../audio/'}
 		]),
 	]
 };

@@ -1,4 +1,5 @@
 import getElem from './getElem';
+import {runAudio} from './runAudio';
 
 function promiseTimeout(ms) {
   return new Promise((resolve) => {
@@ -11,9 +12,8 @@ export async function offsetCardStart(arrayCard) {
     const divCard = getElem(id);
     const offsetCard = `translate(${left}px, ${top}px)`;
     divCard.style.transform = offsetCard;
-
+    runAudio('distributionCards');
     await promiseTimeout(50);
   }
-
   await promiseTimeout(1000);
 }

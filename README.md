@@ -19,7 +19,7 @@
 2. `css/style-loader` загрузка `css` файлов
 3. `express` - библиотека для обработки запросов на сервере
 4. `babel-core/loader` - ядро транспондера `ES6=>ES5`, загрузчик
-5. `copy-webpack-plugin` - плагин для копирования `html`, `png` файлов
+5. `copy-webpack-plugin` - плагин для копирования `html`, `png`, `mp3` файлов
 6. `extract-text-webpack-plugin` - плагин для копирования `css` файлов
 7. `file-loader` - лоадер для загрузки файлов (в данном случае `png`)
 8. `imports-loader` - лоадер для модульной системы разработки

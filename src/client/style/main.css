@@ -123,8 +123,7 @@ body {
 }
 
 .container {
-	width: 60%;
-	margin: 0 auto;
+		margin: 0 auto;
 }
 
 .title-game {
@@ -171,13 +170,45 @@ body {
 	margin-bottom: 3%;
 }
 
-.one-card, .flip-container, .front, .back{
-	width: 100px;
-	height: 140px;
+
+@media screen and (min-width: 300px) {
+	.container {
+		width: 80%;
+	}
+
+	.one-card, .flip-container, .front, .back {
+		width: 65px;
+		height: 90px;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.container {
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.one-card, .flip-container, .front, .back {
+		width: 83px;
+		height: 118px;
+	}
+}
+
+
+@media screen and (min-width: 1024px) {
+	.container {
+		width: 60%;
+	}
+
+	.one-card, .flip-container, .front, .back {
+		width: 100px;
+		height: 140px;
+	}
 }
 
 .card-shirt{
-	background: url("../img/cards/shirtCard.png") no-repeat;
+	background: url("../img/cards/shirtCard.png") no-repeat center;
 	border-radius: 5px;
 	background-size: cover;
 	position: relative;
