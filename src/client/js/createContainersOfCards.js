@@ -6,20 +6,22 @@ export function drawingCards(address) {
     const divAttributes = {
       divContainerAttr: {
         id: 'flipCont' + i,
-        'class': 'one-card flip-container'
+        class: 'one-card flip-container'
       },
       divFlipper: {
         id: 'flipper' + i,
-        'class': 'flipper'
+        class: 'flipper'
       },
       cardFront: {
         id: 'card' + i,
-        'class': 'one-card card-shirt front'
+        class: 'one-card card-shirt front',
+        'data-tid': "Card"
       },
       cardBack: {
         id: 'flipper' + i,
-        'class': 'one-card card-shirt back',
-        'style': 'background: url("' + address[i].path + '") no-repeat; background-size: cover'
+        class: 'one-card card-shirt back',
+        'data-tid': "Card-flipped",
+        style: 'background: url("' + address[i].path + '") no-repeat; background-size: cover'
       }
     };
 

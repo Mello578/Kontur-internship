@@ -33,7 +33,6 @@ export function clickedCard(numbCard) {
 function actionsOpenedCard(checked) {
   let oneCard = getElem(firstSelected.childContainer);
   let twoCard = getElem(secondSelected.childContainer);
-
   if (checked) {
     setTimeout(() => {
       oneCard.classList.add('no-display');

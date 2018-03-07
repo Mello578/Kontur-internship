@@ -7,7 +7,7 @@
 	<script src='js/toRemovePreloader.js'></script>
 </head>
 <body class='bg-color'>
-<div id='content'>
+<div id='content' data-tid="App">
 	<!--start preloader-->
 	<div class="preloader display-center">
 		<div class='loader'></div>
@@ -21,19 +21,18 @@
 		<div class='end-title'>
 			<span class='start-title__text'>memory game</span>
 		</div>
-
-		<button class='button' id='button-start'>Начать игру</button>
+		<button class='button' id='button-start' data-tid="NewGame-startGame">Начать игру</button>
 	</div>
 	<!--end game start screen-->
 
 	<!--start game field-->
-	<div class='bg-color game-field no-display' id='game-field'>
+	<div class='bg-color game-field no-display' id='game-field' data-tid="Deck">
 		<div class='container'>
 			<div class='title-game'>
-				<button class='game-repeat' id='repeat-game'>Начать заново</button>
+				<button class='game-repeat' id='repeat-game' data-tid="Menu-newGame">Начать заново</button>
 				<div>
 					<span>Очки:</span>
-					<span id='points' class='points--margin'>0</span>
+					<span id='points' class='points--margin' data-tid="Menu-scores">0</span>
 				</div>
 			</div>
 			<div class='cards'>
@@ -74,8 +73,7 @@
 			<span class='end-title__text'>Поздравляем!</span>
 			<span class='end-title__text'>Ваш итоговый счет: <span class='end-title__text' id='result'></span></span>
 		</div>
-
-		<button class='button' id='game-repeat'>Ещё раз</button>
+		<button class='button' id='game-repeat' data-tid="EndGame-retryGame">Ещё раз</button>
 	</div>
 	<!--end game end screen-->
 

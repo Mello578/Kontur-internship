@@ -15,7 +15,7 @@ export function runAudio(audioMode) {
       musicInterval(endGameAudio, 10, 1);
       break;
     case 'flipCard':
-      musicInterval(flipAudio , 10, 1);
+      musicInterval(flipAudio, 10, 1);
       break;
     case 'guessCard':
       musicInterval(guessCardsAudio, 10, 1);
@@ -34,10 +34,9 @@ export function runAudio(audioMode) {
 
 async function musicInterval(music, interval, countOfCalls) {
   countInterval += interval;
-
+  console.log(countInterval);
   await promiseTimeout(countInterval);
   new Audio(music).play();
-
   let maxInterval = countOfCalls * interval;
   if (countInterval > maxInterval - 1) {
     countInterval = 0;

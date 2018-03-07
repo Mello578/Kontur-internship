@@ -5,9 +5,9 @@ import getElem from './getElem';
 import {workingWithStartAndRepeatGame} from './startAndRepeatGame';
 import {clickedCard} from './clickCard';
 
-const fieldShirtCards = getElem('shirt-cards');
 let {startAndRepeatgame, deleteCards, setNullArrayAllCards} = workingWithStartAndRepeatGame;
 
+const fieldShirtCards = getElem('shirt-cards');
 const buttonStart = getElem('button-start');
 const gameField = getElem('game-field');
 const startScreen = getElem('start-screen');
