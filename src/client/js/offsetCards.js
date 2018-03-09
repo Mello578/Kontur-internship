@@ -1,10 +1,18 @@
 import getElem from './getElem';
 import {runAudio} from './runAudio';
+import {arrayClearTimeout} from './arrayClearTimeout';
 
 export function promiseTimeout(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
+  let timeoutId;
+
+  return {
+    promise: new Promise((resolve) => {
+      timeoutId = setTimeout(resolve, ms);
+    }),
+    clear() {
+      clearTimeout(timeoutId);
+    },
+  };
 }
 
 export async function offsetCardStart(arrayCard) {
@@ -13,7 +21,13 @@ export async function offsetCardStart(arrayCard) {
     const offsetCard = `translate(${left}px, ${top}px)`;
     divCard.style.transform = offsetCard;
     runAudio('distributionCards');
-    await promiseTimeout(50);
+    const {promise, clear: clearOffset} = promiseTimeout(50);
+    arrayClearTimeout.push(clearOffset);
+    await promise;
   }
-  await promiseTimeout(1000);
+  //for last card
+  const {promise, clear: clearLastCardOffset} = promiseTimeout(1000);
+  arrayClearTimeout.push(clearLastCardOffset);
+  await promise;
 }
+

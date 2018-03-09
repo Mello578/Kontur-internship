@@ -7,6 +7,7 @@ import {drawingCards} from './createContainersOfCards';
 import {offsetCardStart} from './offsetCards';
 import {flippFunction} from './flippCard';
 import {numberOpenedCards} from './clickCard';
+import {arrayClearTimeout} from './arrayClearTimeout';
 
 const {coordinatesOfElement, foundPlaceCardCoordinates} = workingWithCoordinates;
 const {flippAllCardsStartGame} = flippFunction;
@@ -19,6 +20,11 @@ let arrayAllCards = [];
 let arrayPlaceOfCardsCoordinates = [];
 
 async function startAndRepeatgame() {
+
+  if (arrayClearTimeout.length) {
+    arrayClearTimeout.forEach(item => item());
+    arrayClearTimeout.length = 0;
+  }
   if (gameField.classList.contains('no-display')) {
     gameField.classList.remove('no-display');
     endScreen.classList.add('no-display');
@@ -37,9 +43,9 @@ async function startAndRepeatgame() {
 
 function checkData(data) {
   const dataFromTheServer = JSON.parse(data);
-  if(dataFromTheServer.length !== NUMBER_ALL_CARDS){
+  if (dataFromTheServer.length !== NUMBER_ALL_CARDS) {
     console.log('Error! Incorrect data from the server!');
-  }else{
+  } else {
     return dataFromTheServer;
   }
 }
@@ -60,11 +66,11 @@ function deleteCards() {
   }
 }
 
-export function getArrayAllCards(){
+export function getArrayAllCards() {
   return arrayAllCards;
 }
 
-function setNullArrayAllCards(){
+function setNullArrayAllCards() {
   arrayAllCards = [];
 }
 

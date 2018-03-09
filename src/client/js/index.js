@@ -11,12 +11,12 @@ const fieldShirtCards = getElem('shirt-cards');
 const buttonStart = getElem('button-start');
 const gameField = getElem('game-field');
 const startScreen = getElem('start-screen');
-const buttonRepeatGame = getElem('repeat-game');
-const buttonGameRepeat = getElem('game-repeat');
+const buttonRepeatGamePlayingField = getElem('repeat-game');
+const buttonGameRepeatEndField = getElem('game-repeat');
 
 let clickProtection = false;
 
-async function startAndRepeateInternal() {
+async function startAndRepeatInternal() {
   clickProtection = false;
   await startAndRepeatgame();
   clickProtection = true;
@@ -26,14 +26,12 @@ buttonStart.addEventListener('click', (e) => {
   e.preventDefault();
   gameField.classList.remove('no-display');
   startScreen.classList.add('no-display');
-  startAndRepeateInternal();
+  startAndRepeatInternal();
 });
 
-buttonRepeatGame.addEventListener('click', (e) => {
+buttonRepeatGamePlayingField.addEventListener('click', (e) => {
   e.preventDefault();
-  deleteCards();
-  setNullArrayAllCards();
-  startAndRepeateInternal();
+  repeatGame();
 });
 
 fieldShirtCards.addEventListener('click', (e) => {
@@ -47,9 +45,15 @@ fieldShirtCards.addEventListener('click', (e) => {
   }
 });
 
-buttonGameRepeat.addEventListener('click', (e) => {
+buttonGameRepeatEndField.addEventListener('click', (e) => {
   e.preventDefault();
+  repeatGame();
+});
+
+
+
+function repeatGame() {
   deleteCards();
   setNullArrayAllCards();
-  startAndRepeateInternal();
-});
+  startAndRepeatInternal();
+}

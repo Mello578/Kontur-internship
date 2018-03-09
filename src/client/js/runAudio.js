@@ -1,4 +1,5 @@
 import {promiseTimeout} from './offsetCards';
+import {arrayClearTimeout} from './arrayClearTimeout';
 
 const endGameAudio = './audio/endGame.mp3';
 const flipAudio = './audio/flip.mp3';
@@ -33,14 +34,15 @@ export function runAudio(audioMode) {
 }
 
 async function musicInterval(music, interval, countOfCalls) {
+  const track = new Audio(music);
   countInterval += interval;
-  console.log(countInterval);
-  await promiseTimeout(countInterval);
-  new Audio(music).play();
+  const {promise, clear: clearMusic} = promiseTimeout(countInterval);
+  arrayClearTimeout.push(clearMusic);
+  await promise;
+  track.play();
+
   let maxInterval = countOfCalls * interval;
   if (countInterval > maxInterval - 1) {
     countInterval = 0;
   }
 }
-
-

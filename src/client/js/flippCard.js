@@ -1,6 +1,8 @@
 import getElem from './getElem';
+import {arrayClearTimeout} from './arrayClearTimeout';
+import {promiseTimeout} from './offsetCards';
 
-function flippAllCardsStartGame(arrayCard) {
+async function flippAllCardsStartGame(arrayCard) {
   function allFlipp() {
     for (let i = 0; i < arrayCard.length; i++) {
       let cardId = arrayCard[i].id;
@@ -8,16 +10,16 @@ function flippAllCardsStartGame(arrayCard) {
     }
   }
 
-  setTimeout(() => {
-    allFlipp();
-  }, 300);
+  const {promise: fastFlip, clear: clearFastFlipAllCard} = promiseTimeout(300);
+  arrayClearTimeout.push(clearFastFlipAllCard);
+  await fastFlip;
+  allFlipp();
 
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      allFlipp();
-      setTimeout(() => resolve())
-    }, 5000);
-  });
+  const {promise: slowFlip, clear: clearSlowFlipAllCard} = promiseTimeout(5000);
+  arrayClearTimeout.push(clearSlowFlipAllCard);
+  await slowFlip;
+  allFlipp();
+
 }
 
 function flipCard(cardId) {
