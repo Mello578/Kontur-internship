@@ -1,7 +1,7 @@
 import '../style/main.css';
 import 'babel-polyfill';
 
-import getElem from './getElem';
+import getElem from './common/getElem';
 import {workingWithStartAndRepeatGame} from './startAndRepeatGame';
 import {clickedCard} from './clickCard';
 
@@ -23,19 +23,16 @@ async function startAndRepeatInternal() {
 }
 
 buttonStart.addEventListener('click', (e) => {
-  e.preventDefault();
   gameField.classList.remove('no-display');
   startScreen.classList.add('no-display');
   startAndRepeatInternal();
 });
 
 buttonRepeatGamePlayingField.addEventListener('click', (e) => {
-  e.preventDefault();
   repeatGame();
 });
 
 fieldShirtCards.addEventListener('click', (e) => {
-  e.preventDefault();
   if (clickProtection) {
     const clickIdElem = e.target.id;
     if (clickIdElem.indexOf('card') === 0) {
@@ -46,11 +43,8 @@ fieldShirtCards.addEventListener('click', (e) => {
 });
 
 buttonGameRepeatEndField.addEventListener('click', (e) => {
-  e.preventDefault();
   repeatGame();
 });
-
-
 
 function repeatGame() {
   deleteCards();

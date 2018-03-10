@@ -1,9 +1,9 @@
-import getElem from './getElem';
+import getElem from './common/getElem';
 import {flippFunction} from './flippCard';
 import {getArrayAllCards} from './startAndRepeatGame';
-import {checkCards} from './checkCards';
-import {NUMBER_ALL_CARDS} from './NUMBER_ALL_CARDS';
-import {gamePoints} from './gamePoints';
+import {checkCards} from './common/checkCards';
+import {NUMBER_ALL_CARDS} from './common/NUMBER_ALL_CARDS';
+import {gamePoints} from './common/gamePoints';
 import {runAudio} from './runAudio';
 
 const finishResult = getElem('result');
@@ -18,11 +18,13 @@ let secondSelected = undefined;
 
 export function clickedCard(numbCard) {
   let currentCard = getArrayAllCards()[numbCard];
-  runAudio('flipCard');
+
   if (firstSelected === undefined && secondSelected === undefined) {
+    runAudio('flipCard');
     firstSelected = currentCard;
     flipCard(firstSelected.id);
   } else if (firstSelected !== undefined && secondSelected === undefined && currentCard.id !== firstSelected.id) {
+    runAudio('flipCard');
     secondSelected = currentCard;
     flipCard(secondSelected.id);
     const resultCheckCard = checkCards(firstSelected, secondSelected);

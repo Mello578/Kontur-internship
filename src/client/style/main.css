@@ -71,19 +71,19 @@ body {
 	height: 262px;
 }
 
-.start-title, .end-title {
-	margin: 3.3% 0 5.7%;
+.start-title, .title-menu {
+	margin: 30px 0 0;
 	width: 219px;
 	height: 38px;
 	text-align: center;
 	line-height: 38px;
 }
 
-.end-title {
+.title-menu {
 	width: 335px;
 }
 
-.end-title button {
+.title-menu button {
 	margin-top: 20px;
 }
 
@@ -95,6 +95,7 @@ body {
 	color: #fff;
 	opacity: 0.85;
 }
+
 .end-title__text {
 	vertical-align: middle;
 	font-size: 24px;
@@ -115,6 +116,7 @@ body {
 	opacity: 0.85;
 	border: none;
 	position: relative;
+	margin-top: 30px;
 }
 
 .button:active {
@@ -122,8 +124,12 @@ body {
 	right: 2px;
 }
 
+.button-repeat{
+	margin-top: 55px;
+}
+
 .container {
-		margin: 0 auto;
+	margin: 0 auto;
 }
 
 .title-game {
@@ -152,24 +158,23 @@ body {
 	padding: 0;
 }
 
-.game-repeat:hover{
+.game-repeat:hover {
 	color: #d8e6cf;
 }
 
-.game-repeat:active{
+.game-repeat:active {
 	color: #93ff4d;
 }
 
-.points--margin{
+.points--margin {
 	margin-left: 10px;
 }
 
-.line-cards{
+.line-cards {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 3%;
 }
-
 
 @media screen and (min-width: 300px) {
 	.container {
@@ -195,7 +200,6 @@ body {
 	}
 }
 
-
 @media screen and (min-width: 1024px) {
 	.container {
 		width: 60%;
@@ -207,7 +211,14 @@ body {
 	}
 }
 
-.card-shirt{
+@media screen and (min-width: 1600px) {
+	.one-card, .flip-container, .front, .back {
+		width: 130px;
+		height: 183px;
+	}
+}
+
+.card-shirt {
 	background: url("../img/cards/shirtCard.png") no-repeat center;
 	border-radius: 5px;
 	background-size: cover;
@@ -224,32 +235,35 @@ body {
 	-o-transition: all 1s ease-in-out;
 }
 
-.flip-container.flip .flipper{
+.flip-container.flip .flipper {
 	transform: rotateY(180deg);
 }
 
 /* здесь находится скорость перевертывания */
-	.flipper {
-		transition: 0.65s;
-		transform-style: preserve-3d;
-		position: relative;
-	}
-/* скройте обратную сторону во время переворота */
-	.front, .back {
-		backface-visibility: hidden;
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-/* лицевая сторона размещена над обратной */
-	.front {
-		z-index: 2;
-	}
-/* обратная, изначально скрытая сторона */
-	.back {
-		transform: rotateY(180deg);
-	}
+.flipper {
+	transition: 0.65s;
+	transform-style: preserve-3d;
+	position: relative;
+}
 
-	.increase-card:hover{
-		transform: scale(1.1);
-	}
+/* скройте обратную сторону во время переворота */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* лицевая сторона размещена над обратной */
+.front {
+	z-index: 2;
+}
+
+/* обратная, изначально скрытая сторона */
+.back {
+	transform: rotateY(180deg);
+}
+
+.increase-card:hover {
+	transform: scale(1.1);
+}

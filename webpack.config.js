@@ -8,7 +8,7 @@ module.exports = {
 	},
 	entry:  {
 		'bundle': './src/client/js/index.js',
-		'toRemovePreloader': './src/client/js/toRemovePreloader.js'
+		'toRemovePreloader': './src/client/js/common/toRemovePreloader.js'
 	},
 	output: {
 		path:  __dirname + '/dist/js/',

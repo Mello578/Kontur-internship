@@ -1,5 +1,5 @@
-import getElem from './getElem';
-import {arrayClearTimeout} from './arrayClearTimeout';
+import getElem from './common/getElem';
+import {arrayClearTimeout} from './common/arrayClearTimeout';
 import {promiseTimeout} from './offsetCards';
 
 async function flippAllCardsStartGame(arrayCard) {
@@ -19,7 +19,6 @@ async function flippAllCardsStartGame(arrayCard) {
   arrayClearTimeout.push(clearSlowFlipAllCard);
   await slowFlip;
   allFlipp();
-
 }
 
 function flipCard(cardId) {

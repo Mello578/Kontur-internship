@@ -1,13 +1,13 @@
-import {getUrlShirtAndNameCard} from './getUrlShirtAndNameCard';
-import getElem from './getElem';
-import {NUMBER_ALL_CARDS} from './NUMBER_ALL_CARDS';
+import {getUrlShirtAndNameCard} from './common/getUrlShirtAndNameCard';
+import getElem from './common/getElem';
+import {NUMBER_ALL_CARDS} from './common/NUMBER_ALL_CARDS';
 import {workingWithCoordinates} from './foundCoordinates';
 import Card from './classCard';
 import {drawingCards} from './createContainersOfCards';
 import {offsetCardStart} from './offsetCards';
 import {flippFunction} from './flippCard';
 import {numberOpenedCards} from './clickCard';
-import {arrayClearTimeout} from './arrayClearTimeout';
+import {arrayClearTimeout} from './common/arrayClearTimeout';
 
 const {coordinatesOfElement, foundPlaceCardCoordinates} = workingWithCoordinates;
 const {flippAllCardsStartGame} = flippFunction;

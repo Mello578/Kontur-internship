@@ -1,4 +1,4 @@
-import getElem from './getElem';
+import getElem from './common/getElem';
 
 export function drawingCards(address) {
   const shirtCards = getElem('shirt-cards');

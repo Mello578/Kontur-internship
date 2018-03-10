@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Test-kontur</title>
 	<link rel='stylesheet' href='style/main.css'>
-	<script src='js/toRemovePreloader.js'></script>
+	<script src='js/common/toRemovePreloader.js'></script>
 </head>
 <body class='bg-color'>
 <div id='content' data-tid="App">
@@ -18,7 +18,7 @@
 	<!--start game start screen-->
 	<div class='start-screen display-center bg-color' id='start-screen'>
 		<img src='img/StartGame.png' alt='start'>
-		<div class='end-title'>
+		<div class="title-menu">
 			<span class='start-title__text'>memory game</span>
 		</div>
 		<button class='button' id='button-start' data-tid="NewGame-startGame">Начать игру</button>
@@ -69,11 +69,11 @@
 	<!--start game end screen-->
 	<div class='start-screen display-center bg-color no-display' id='end-screen'>
 		<img src='img/Group%202.png' alt='end'>
-		<div class='end-title'>
+		<div class='title-menu'>
 			<span class='end-title__text'>Поздравляем!</span>
 			<span class='end-title__text'>Ваш итоговый счет: <span class='end-title__text' id='result'></span></span>
 		</div>
-		<button class='button' id='game-repeat' data-tid="EndGame-retryGame">Ещё раз</button>
+		<button class='button button-repeat' id='game-repeat' data-tid="EndGame-retryGame">Ещё раз</button>
 	</div>
 	<!--end game end screen-->
 
