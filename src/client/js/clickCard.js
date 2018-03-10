@@ -1,9 +1,9 @@
-import getElem from './common/getElem';
+import getElem from './utils/getElem';
 import {flippFunction} from './flippCard';
 import {getArrayAllCards} from './startAndRepeatGame';
-import {checkCards} from './common/checkCards';
-import {NUMBER_ALL_CARDS} from './common/NUMBER_ALL_CARDS';
-import {gamePoints} from './common/gamePoints';
+import {checkCards} from './utils/checkCards';
+import {NUMBER_ALL_CARDS} from './utils/NUMBER_ALL_CARDS';
+import {gamePoints} from './utils/gamePoints';
 import {runAudio} from './runAudio';
 
 const finishResult = getElem('result');

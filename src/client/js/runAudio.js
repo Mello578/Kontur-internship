@@ -1,5 +1,5 @@
 import {promiseTimeout} from './offsetCards';
-import {arrayClearTimeout} from './common/arrayClearTimeout';
+import {arrayClearTimeout} from './utils/arrayClearTimeout';
 
 const endGameAudio = './audio/endGame.mp3';
 const flipAudio = './audio/flip.mp3';

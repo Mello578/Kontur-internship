@@ -1,6 +1,6 @@
-import getElem from './common/getElem';
+import getElem from './utils/getElem';
 import {runAudio} from './runAudio';
-import {arrayClearTimeout} from './common/arrayClearTimeout';
+import {arrayClearTimeout} from './utils/arrayClearTimeout';
 
 export function promiseTimeout(ms) {
   let timeoutId;

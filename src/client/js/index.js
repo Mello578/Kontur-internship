@@ -1,7 +1,7 @@
 import '../style/main.css';
 import 'babel-polyfill';
 
-import getElem from './common/getElem';
+import getElem from './utils/getElem';
 import {workingWithStartAndRepeatGame} from './startAndRepeatGame';
 import {clickedCard} from './clickCard';
 

@@ -1,4 +1,4 @@
-import getElem from './common/getElem';
+import getElem from './utils/getElem';
 
 function Coordinates(coordTop, coordLeft) {
   this.coordTop = coordTop;
