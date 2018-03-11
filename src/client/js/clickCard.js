@@ -5,6 +5,7 @@ import {checkCards} from './utils/checkCards';
 import {NUMBER_ALL_CARDS} from './utils/NUMBER_ALL_CARDS';
 import {gamePoints} from './utils/gamePoints';
 import {runAudio} from './runAudio';
+import {promiseTimeout} from './offsetCards';
 
 const gameField = getElem('game-field');
 const endScreen = getElem('end-screen');
@@ -33,34 +34,31 @@ export function clickedCard(numbCard) {
   }
 }
 
-function actionsOpenedCard(checked) {
+async function actionsOpenedCard(checked) {
   let oneCard = getElem(firstSelected.childContainer);
   let twoCard = getElem(secondSelected.childContainer);
+  const {promise} = promiseTimeout(500);
   if (checked) {
-    setTimeout(() => {
-      oneCard.classList.add('no-display');
-      twoCard.classList.add('no-display');
-      numberOpenedCards.numb += 2;
-      runAudio('guessCard');
-      gamePoints(NUMBER_ALL_CARDS - numberOpenedCards.numb, 'win');
-      if (numberOpenedCards.numb === NUMBER_ALL_CARDS) {
-        setTimeout(() => {
-          gameField.classList.add('no-display');
-          endScreen.classList.remove('no-display');
-          parseInt(getElem('points').innerText) > 0 ? runAudio('endGame') : runAudio('loseGame');
-          zeroingVariables();
-        }, 300);
-      }
-      zeroingVariables();
-    }, 500);
+    await promise;
+    oneCard.classList.add('no-display');
+    twoCard.classList.add('no-display');
+    numberOpenedCards.numb += 2;
+    runAudio('guessCard');
+    gamePoints(NUMBER_ALL_CARDS - numberOpenedCards.numb, 'win');
+    if (numberOpenedCards.numb === NUMBER_ALL_CARDS) {
+      await promiseTimeout(300).promise;
+      gameField.classList.add('no-display');
+      endScreen.classList.remove('no-display');
+      parseInt(getElem('points').innerText) > 0 ? runAudio('endGame') : runAudio('loseGame');
+    }
+    zeroingVariables();
   } else {
-    setTimeout(() => {
-      flipCard(firstSelected.id);
-      flipCard(secondSelected.id);
-      runAudio('notGuessCard');
-      gamePoints(numberOpenedCards.numb, 'lose');
-      zeroingVariables();
-    }, 500);
+    await promise;
+    flipCard(firstSelected.id);
+    flipCard(secondSelected.id);
+    runAudio('notGuessCard');
+    gamePoints(numberOpenedCards.numb, 'lose');
+    zeroingVariables();
   }
 }
 
