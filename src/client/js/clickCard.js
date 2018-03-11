@@ -6,7 +6,6 @@ import {NUMBER_ALL_CARDS} from './utils/NUMBER_ALL_CARDS';
 import {gamePoints} from './utils/gamePoints';
 import {runAudio} from './runAudio';
 
-const finishResult = getElem('result');
 const gameField = getElem('game-field');
 const endScreen = getElem('end-screen');
 const {flipCard} = flippFunction;
@@ -23,7 +22,9 @@ export function clickedCard(numbCard) {
     runAudio('flipCard');
     firstSelected = currentCard;
     flipCard(firstSelected.id);
-  } else if (firstSelected !== undefined && secondSelected === undefined && currentCard.id !== firstSelected.id) {
+  } else if (firstSelected !== undefined
+    && secondSelected === undefined
+    && currentCard.id !== firstSelected.id) {
     runAudio('flipCard');
     secondSelected = currentCard;
     flipCard(secondSelected.id);
@@ -43,7 +44,6 @@ function actionsOpenedCard(checked) {
       runAudio('guessCard');
       gamePoints(NUMBER_ALL_CARDS - numberOpenedCards.numb, 'win');
       if (numberOpenedCards.numb === NUMBER_ALL_CARDS) {
-        finishResult.innerText = ' ' + getElem('points').innerText;
         setTimeout(() => {
           gameField.classList.add('no-display');
           endScreen.classList.remove('no-display');

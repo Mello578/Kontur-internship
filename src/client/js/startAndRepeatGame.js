@@ -53,9 +53,9 @@ function checkData(data) {
 function createCard(data) {
   for (let i = 0; i < NUMBER_ALL_CARDS; i++) {
     let oneCard = new Card('flipCont' + i, data[i].name);
-    oneCard.setChildContainer = i;
-    oneCard.setCoordinatesPlace = arrayPlaceOfCardsCoordinates[i];
-    oneCard.setCoordinatesCard = coordinatesOfElement(getElem('flipCont' + i));
+    oneCard.idChildContainer = i;
+    oneCard.coordinatesPlaceForCard = arrayPlaceOfCardsCoordinates[i];
+    oneCard.coordinatesThisCard = coordinatesOfElement(getElem('flipCont' + i));
     arrayAllCards.push(oneCard);
   }
 }

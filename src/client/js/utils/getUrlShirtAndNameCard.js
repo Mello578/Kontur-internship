@@ -1,3 +1,8 @@
+/**
+ * запрос на сервер
+ * @param url
+ * @returns {Promise<any>}
+ */
 export async function getUrlShirtAndNameCard(url) {
   const response = await fetch(url);
   try {
@@ -5,7 +10,6 @@ export async function getUrlShirtAndNameCard(url) {
       throw new Error('Looks like there was a problem. Status Code: ' + response.status);
     }
     return response.json();
-    // Examine the text in the response
   } catch (err) {
     console.log('Fetch Error :-S', err);
   }

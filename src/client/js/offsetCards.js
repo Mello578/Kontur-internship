@@ -16,7 +16,7 @@ export function promiseTimeout(ms) {
 }
 
 export async function offsetCardStart(arrayCard) {
-  for (const {getOffsetCard: {id, left, top}} of arrayCard) {
+  for (const {offsetCard: {id, left, top}} of arrayCard) {
     const divCard = getElem(id);
     const offsetCard = `translate(${left}px, ${top}px)`;
     divCard.style.transform = offsetCard;

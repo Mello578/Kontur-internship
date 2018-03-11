@@ -4,19 +4,19 @@ export default class Card {
     this.name = name;
   }
 
-  set setChildContainer(numb) {
+  set idChildContainer(numb) {
     this.childContainer = 'flipper' + numb;
   }
 
-  set setCoordinatesCard(coordinates) {
+  set coordinatesThisCard(coordinates) {
     this.coordinatesCard = coordinates;
   }
 
-  set setCoordinatesPlace(coordinates) {
+  set coordinatesPlaceForCard(coordinates) {
     this.coordinatesPlace = coordinates;
   }
 
-  get getOffsetCard() {
+  get offsetCard() {
     return {
       id: this.id,
       top: this.coordinatesPlace.coordTop - this.coordinatesCard.coordTop,
